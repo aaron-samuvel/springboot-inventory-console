@@ -1,5 +1,7 @@
 # Spring Boot Inventory Console
 
+[![Build WAR](https://github.com/aaron-samuvel/springboot-inventory-console/actions/workflows/build.yml/badge.svg)](https://github.com/aaron-samuvel/springboot-inventory-console/actions/workflows/build.yml)
+
 A Java portfolio project demonstrating Spring Boot, Spring MVC, JSP, JSTL, tag libraries, XML deployment descriptors, Apache Tomcat configuration, PostgreSQL, and production-oriented operations.
 
 ## Stack
