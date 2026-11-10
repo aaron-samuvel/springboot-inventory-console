@@ -47,7 +47,7 @@ class InventoryConsoleIntegrationTest {
 
     @Test
     void searchesLiteralPrefixesAndReturnsBoundedSlices() throws Exception {
-        createProduct("BEAR-100", "20% Genuine Bearing");
+        createProduct("BEAR-100", "%20 Genuine Bearing");
         createProduct("BEAR-200", "Bearing Housing");
 
         mockMvc.perform(get("/api/v1/products").param("q", "%").with(admin()))
