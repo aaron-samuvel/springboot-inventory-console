@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Reference Tomcat 11 server configuration. Tune connector limits to the host's CPU and memory. -->
+<Server port="-1">
+    <Service name="Catalina">
+        <Connector address="0.0.0.0"
+                   port="8080"
+                   protocol="org.apache.coyote.http11.Http11NioProtocol"
+                   connectionTimeout="5000"
+                   keepAliveTimeout="20000"
+                   maxKeepAliveRequests="100"
+                   maxThreads="200"
+                   minSpareThreads="20"
+                   maxConnections="8192"
+                   acceptCount="100"
+                   maxHttpRequestHeaderSize="16384"
+                   maxPostSize="2097152"
+                   maxParameterCount="1000"
+                   URIEncoding="UTF-8" />
+        <Engine name="Catalina" defaultHost="localhost">
+            <!-- Replace the example address with the exact trusted reverse-proxy range. -->
+            <Valve className="org.apache.catalina.valves.RemoteIpValve"
+                   remoteIpHeader="x-forwarded-for"
+                   protocolHeader="x-forwarded-proto"
+                   internalProxies="10\.20\.0\.10" />
+            <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="false">
+                <Valve className="org.apache.catalina.valves.AccessLogValve"
+                       directory="logs" prefix="access_log" suffix=".log"
+                       pattern="%h %l %u %t &quot;%r&quot; %s %b %D" />
+            </Host>
+        </Engine>
+    </Service>
+</Server>

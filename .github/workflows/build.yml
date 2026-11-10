@@ -1,0 +1,29 @@
+name: Build WAR
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Verify and package
+        run: mvn --batch-mode --no-transfer-progress verify
+      - name: Build container image
+        run: docker build --tag inventory-console:ci .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inventory-console-war
+          path: target/inventory-console.war
+          if-no-files-found: error

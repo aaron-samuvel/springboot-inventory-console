@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: inventory-console
+    metrics_path: /actuator/prometheus
+    basic_auth:
+      username: admin
+      password_file: /etc/prometheus/secrets/inventory-console-password
+    static_configs:
+      - targets: ["inventory-console:8080"]
