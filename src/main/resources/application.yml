@@ -10,10 +10,10 @@ spring:
     hikari:
       maximum-pool-size: ${DB_POOL_MAX:20}
       minimum-idle: ${DB_POOL_MIN_IDLE:5}
-      connection-timeout: 3s
-      validation-timeout: 2s
-      max-lifetime: 30m
-      keepalive-time: 5m
+      connection-timeout: 3000
+      validation-timeout: 2000
+      max-lifetime: 1800000
+      keepalive-time: 300000
   jpa:
     open-in-view: false
     hibernate:
