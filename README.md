@@ -97,7 +97,7 @@ Do not commit `.env` or production secrets. Use a secret manager in production. 
 
 ## Important validation status
 
-This is a production-oriented portfolio project, not certified for production traffic until CI passes with Java 21 and Docker and a staging load run meets the deployment's service objectives. This development environment has no Java or Docker runtime, so local build, integration, and load runs are unavailable here.
+The latest CI run passes the Java 21 WAR build, PostgreSQL-backed integration tests, and Docker image build. A local clean package build also passed with Temurin 21.0.13 (`mvn clean package -DskipTests`). Docker is not available in this environment, so the integration tests and k6 staging load were not run locally. This is a production-oriented portfolio project, not certified for production traffic until a staging load run meets the deployment's service objectives.
 
 ## Project map
 
